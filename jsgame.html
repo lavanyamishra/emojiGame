@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>Emoji Game</title>
+<meta charset="UTF-8">
+</head>
+
+<style>
+*{
+background:black;
+}
+
+
+
+
+div#d1 {
+width:5%;
+height: 10%;
+border: 2px groove blue;
+background: #8E44AD;
+color: white;
+position: absolute;
+left:0px;
+top: 35%;
+box-shadow: 5px 5px 5px grey;
+}
+
+div#container{
+background-color:#2ECC71;
+border:#34495E groove 5px;
+}
+div#score{
+background-color:#3498DB;
+border:red double 5px;
+position:relative;
+left:0px;;
+top:0px;
+width:200px;
+height:150px; 
+text-align:center;
+font-size:50px;
+color:#BA4A00;
+}
+div#time{
+background-color:#3498DB;
+border:red double 5px;
+position:absolute;
+right:12px;
+top:13px; 
+width:200px;
+height:150px;
+text-align:center;
+font-size:50px;
+color:#BA4A00;
+}
+div#ground{
+
+background:white;
+}
+span#s1{
+font-size:65px;
+position:absolute;
+top:8%;
+left:35%;
+color:#F4F6F7;
+}
+</style>
+
+<script>
+let i = 1;
+
+function lw() {
+rh = Math.floor(Math.random() *  document.documentElement.clientHeight );
+rw = Math.floor(Math.random() *  document.documentElement.clientWidth );
+
+
+
+const d = document.getElementById("d1");
+d.style.left = rh ;
+d.style.top = rw;
+
+if (i <= 2)
+{
+r = setTimeout(lw, 2000);
+}
+else
+{
+i = 1
+
+r = setTimeout(lw, 2000);
+}
+
+
+
+
+}
+
+
+
+
+
+function pw() {
+
+ count = 0;
+        btn = document.getElementById("d1");
+        disp = document.getElementById("score");
+  
+        btn.onclick = function () {
+            count++;
+         
+            disp.innerHTML = count;
+
+        }
+btn.style.cursor="pointer";
+var timeleft = 10;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("time").innerHTML = "Finished";
+end()
+  } else {
+    document.getElementById("time").innerHTML = timeleft + " seconds left";
+  }
+  timeleft -= 1;
+}, 1000);
+
+//if(document.getElementById("time").innerHTML = "Finished"){
+//end()
+//}
+}
+
+function end() {
+alert(" GAME OVER!!! your Current score is "+ count);
+const c = document.getElementById("score");
+c.innerHTML="Current score";
+clearTimeout(r);
+
+}
+
+</script>
+<body>
+<div id="container">
+<div id="score">
+Current score
+</div>
+
+<span id="s1"><center>EMOJI GAME</center></span>
+<div id="time">
+Time Left
+</div>
+</div>
+<div id="ground">
+<div id="d1" onclick="lw()" style="font-size:48px"><center>&#128512;</center></div>
+</div>
+</div>
+<center>
+<button onclick="lw()" style="width:125px;background-color:#9C640C;height: 90px;text-align:center ;font-size:35px;color:#FDFEFE" >Start</button>
+
+<button onclick="pw()" style="width:125px;background-color:#9C640C;height: 90px;text-align:center ;font-size:35px;color:#FDFEFE" >Record </button>
+
+<button onclick="end()" style="width:125px;background-color:#9C640C;height: 90px;text-align:center ;font-size:35px;color:#FDFEFE" >End</button>
+</body>
+
+
+
+
+</html>
